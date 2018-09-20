@@ -1,0 +1,32 @@
+// 组件class用的前缀
+$component-prefix: "c";
+// 全局class用的前缀
+$global-prefix: "g";
+// 基准字体倍数
+$root-size: 10px;
+
+
+//color
+$white: #D9D9D9;
+$blue: #576CF0;
+$red: #F96471;
+$green: #4CAC3B;
+$grey: #6B739E;
+$black: #1E2134;
+
+// background-color
+$colors: (
+  blue: $blue,
+  div: #26283E,
+  title: #2D3046,
+  row: #1D1E30
+);
+
+// font-family
+$font-family: 微软雅黑, Arial, Helvetica, Helvetica Neue, serif;
+
+// font-size
+$font-size-collection: 1.4, 1.6, 1.8, 2, 2.2, 2.4, 3.0, 3.6;
+
+// table-row-header
+$row-header: 40px;

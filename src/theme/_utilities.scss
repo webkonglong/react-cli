@@ -1,0 +1,78 @@
+
+/******************生成color*****************/
+@each $value in $font-size-collection {
+  $computed-value: $value * $root-size;
+  $key: $value * 10;
+  .#{$global-prefix}-font-#{$key} {
+    font-size: $computed-value;
+  }
+}
+
+.#{$global-prefix} {
+  &-font-bold {
+    font-weight: bold;
+  }
+}
+
+/******************生成background-color*****************/
+@mixin make-something-with-map ($attr, $map) {
+  @each $suffix, $value in $map {
+	  .#{$global-prefix}-#{$attr}-#{$suffix} {
+	    #{$attr}: $value;
+	  }
+  }
+}
+
+@include make-something-with-map('background-color', $colors);
+
+
+/******************常用样式*****************/
+.#{$global-prefix} {
+	&-fill {
+		position: relative;
+		width: 100%;
+		height: 100%;
+	}
+
+	&-scroll {
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		overflow-y: auto;
+	}
+
+	&-absolute-fill {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+
+	&-text-left {
+		text-align: left
+	}
+
+	&-text-center {
+		text-align: center
+	}
+
+	&-text-right {
+		text-align: right
+	}
+
+	&-text-middle {
+		vertical-align: middle;
+	}
+
+	// 水平占一半
+	&-half-in-h {
+		display: inline-block;
+		width: 50%;
+		vertical-align: middle;
+	}
+
+	&-pointer {
+		cursor: pointer;
+	}
+}

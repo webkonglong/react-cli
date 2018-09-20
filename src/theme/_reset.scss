@@ -1,0 +1,46 @@
+body, div, p, section,
+ul, ol, li, dl, dt, dd,
+a, span, i, img,
+label, input, button, textarea, select,
+h1, h2, h3, h4, h5, h6 {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol, li, dl, dt, dd {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button, a, select, input, textarea {
+  outline: none;
+  -webkit-appearance: none;
+  padding: 0;
+}
+
+button {
+	font-family: $font-family;
+	border: none;
+}
+
+textarea {
+  resize: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body, input, a, button, select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input:focus, textarea:focus ,a {
+  outline: none;
+}
+
+i {
+  font-style: normal;
+}
