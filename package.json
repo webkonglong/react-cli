@@ -99,5 +99,8 @@
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "devDependencies": {
+    "react-hot-loader": "^4.3.11"
   }
 }

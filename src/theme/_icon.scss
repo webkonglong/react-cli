@@ -1,0 +1,38 @@
+@mixin icon ($width, $height, $list, $decorators) {
+	@each $item in $list {
+		&-#{$item} {
+			width: $width;
+			height: $height;
+			background: url(~@/assets/icons/icon_#{$item}.png) center no-repeat;
+      background-size: 100%;
+
+			@if $decorators != null {
+				@each $decorator in $decorators {
+					&.#{$decorator} {
+						background: url(~@/assets/icons/icon_#{$item}_#{$decorator}.png) center no-repeat;
+            background-size: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+.icon {
+	display: inline-block;
+	position: relative;
+	vertical-align: middle;
+
+
+	// 乘号   ---> 一个icon四个色的 如果五个色继续在第三个参数加
+	@include icon(12px, 12px, (times), (grey, blue, light));
+
+	//用户头像   --->  一个icon 一个色的
+	@include icon(28px, 28px, (account), null);
+
+	// 排行榜   ---> 多个icon 一个色
+	@include icon(24px, 30px, (top1, top2, top3), null);
+
+	// 卡包   ---> 二个icon 二个色
+	@include icon(60px, 40px, (cardcoupon, profit), (blue));
+}

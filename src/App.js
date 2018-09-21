@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import styles from './App.css';
+import styles from './App.scss';
+import classs from 'classnames';
 
 class App extends Component {
   render() {
     return (
       <div className={styles.App}>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="xxx">Welcome to React</h1>
+          <h1 className="xxx">Welcome to React-cli</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
+        <p className={styles.body}>
+          <img src="./img/logo.png" alt="" />
         </p>
+        <div className={styles.icons}>
+          <p>icons集合</p>
+          <i className="icon icon-times" />
+          <i className="icon icon-times grey" />
+          <i className="icon icon-times blue" />
+          <i className="icon icon-times light" />
+        </div>
       </div>
     );
   }

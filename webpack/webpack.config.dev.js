@@ -6,12 +6,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
-const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const paths = require('./paths');
-
+const resolve = dir => path.join(__dirname, '..', dir)
 const publicPath = '/';
 const publicUrl = '';
 const env = getClientEnvironment(publicUrl);
@@ -34,15 +33,16 @@ module.exports = {
       path.resolve(info.absoluteResourcePath).replace(/\\/g, '/'),
   },
   resolve: {
-    modules: ['node_modules', paths.appNodeModules].concat(
-      process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
-    ),
-    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
+    modules: ['node_modules', 'local_modules', 'config'],
+    extensions: ['.jsx', '.js', '.scss', 'json'],
     alias: {
       'react-native': 'react-native-web',
+      '@': resolve('src'),
+      Global: resolve('src/Global'),
+      config: resolve('config')
     },
     plugins: [
-      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson])
     ],
   },
   module: {

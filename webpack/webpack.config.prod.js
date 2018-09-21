@@ -1,6 +1,5 @@
 'use strict';
 
-const autoprefixer = require('autoprefixer');
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -8,13 +7,12 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const paths = require('./paths');
 const getClientEnvironment = require('./env');
-
+const resolve = dir => path.join(__dirname, '..', dir)
 const publicPath = paths.servedPath;
-const shouldUseRelativeAssetPaths = publicPath === './';
 const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false';
 const publicUrl = publicPath.slice(0, -1);
 const env = getClientEnvironment(publicUrl);
@@ -40,15 +38,16 @@ module.exports = {
         .replace(/\\/g, '/'),
   },
   resolve: {
-    modules: ['node_modules', paths.appNodeModules].concat(
-      process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
-    ),
-    extensions: ['.web.js', '.mjs', '.js', '.json', '.web.jsx', '.jsx'],
+    modules: ['node_modules', 'local_modules', 'config'],
+    extensions: ['.jsx', '.js', '.scss', 'json'],
     alias: {
       'react-native': 'react-native-web',
+      '@': resolve('src'),
+      Global: resolve('src/Global'),
+      config: resolve('config')
     },
     plugins: [
-      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+      new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson])
     ],
   },
   module: {
@@ -110,6 +109,12 @@ module.exports = {
       staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
     }),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        ignore: ['.*']
+      }
+    ])
   ],
   node: {
     dgram: 'empty',
