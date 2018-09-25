@@ -10,13 +10,13 @@
 # 命令介绍
 
 
-####安装依赖：`npm install`
+#### 安装依赖：`npm install`
 
-####启动项目：`npm run dev`
+#### 启动项目：`npm run dev`
 
-####项目打包：`npm run build`
+#### 项目打包：`npm run build`
 
-####更改语言包:  /tools目录下 `node parse.js`
+#### 更改语言包:  /tools目录下 `node parse.js`
 
 
 
