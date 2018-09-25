@@ -35,4 +35,7 @@
 
 	// 卡包   ---> 二个icon 二个色
 	@include icon(60px, 40px, (cardcoupon, profit), (blue));
+
+	// 语言icon
+	@include icon(32px, 32px, (zh, en), (blue));
 }

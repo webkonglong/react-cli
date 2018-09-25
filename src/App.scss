@@ -8,6 +8,10 @@
   background-image: url(/img/bj.jpg);
 }
 
+h1 {
+  margin-top: 30px;
+}
+
 .body {
   padding: 20px;
   img {
@@ -19,7 +23,7 @@
   color: $white;
 }
 
-.login {
+.login, .logout, .loginSuccess {
   width: 100px;
   height: 40px;
   border-radius: 3px;
@@ -32,15 +36,25 @@
   margin: 20px 0;
 }
 
+.login {
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.logout {
+  background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+}
+
 .loginSuccess {
-  width: 200px;
-  height: 40px;
-  border-radius: 3px;
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
-  line-height: 40px;
   background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);
-  display: inline-block;
-  margin: 20px 0;
+}
+
+header {
+  padding-right: 100px;
+  padding-top: 20px;
+  text-align: right;
+}
+
+.lang {
+  margin-right: 20px;
+  cursor: pointer;
 }
