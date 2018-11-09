@@ -1,6 +1,5 @@
 @import "~@/theme/var.global.scss";
-
-.App {
+.home {
   text-align: center;
   position: absolute;
   width: 100%;
@@ -23,7 +22,9 @@ h1 {
   color: $white;
 }
 
-.login, .logout, .loginSuccess {
+.login,
+.logout,
+.loginSuccess {
   width: 100px;
   height: 40px;
   border-radius: 3px;
